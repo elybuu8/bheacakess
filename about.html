@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhea's Website - About Me</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= ROOT THEME ================= */
+:root{
+    --dark:#2a001f;
+    --pink:#ff4fa3;
+    --lightpink:#ff8cc6;
+    --hotpink:#ff2e88;
+    --soft:#ffe6f2;
+}
+
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Fredoka', sans-serif;
+    background: linear-gradient(135deg,#2a001f,#3b0a2f,#5a0033);
+    color:var(--soft);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+header{
+    background:#2a001f;
+    padding:30px 20px 10px;
+    border-bottom:2px solid var(--lightpink);
+    text-align:center;
+    position:relative;
+    z-index:10;
+}
+
+header h1{
+    font-family:'Orbitron';
+    color:var(--lightpink);
+    text-shadow:0 0 10px var(--hotpink);
+}
+
+/* ================= NAV ================= */
+nav{
+    margin-top:15px;
+}
+
+.nav-btn{
+    position: relative;
+    display:inline-block;
+    margin:6px;
+    padding:10px 18px;
+    background:linear-gradient(135deg,#ff4fa3,#ff2e88,#ff77b7);
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-family:'Orbitron';
+    font-size:14px;
+    transition:.3s;
+    box-shadow:0 0 10px var(--lightpink);
+    overflow:hidden;
+}
+
+.nav-btn::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-150%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.7),transparent);
+    transform:skewX(-25deg);
+    animation:shine 2.5s infinite;
+}
+
+@keyframes shine{
+    0%{left:-150%;}
+    50%{left:150%;}
+    100%{left:150%;}
+}
+
+.nav-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px var(--hotpink);
+    background:#1a0014;
+    color:var(--lightpink);
+}
+
+/* ================= CONTAINER ================= */
+.columns-container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:40px;
+    flex-wrap:wrap;
+    position:relative;
+    z-index:10;
+}
+
+/* ================= COLUMN ================= */
+.column{
+    flex:1;
+    min-width:260px;
+    max-width:340px;
+    background:rgba(255, 143, 200, 0.08);
+    border:1px solid var(--lightpink);
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 0 20px var(--pink);
+    transition:.3s;
+}
+
+.column:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 30px var(--hotpink);
+}
+
+/* ================= TEXT ================= */
+.column h2{
+    font-family:'Orbitron';
+    color:var(--lightpink);
+    margin-bottom:12px;
+    text-shadow:0 0 10px var(--hotpink);
+}
+
+.column p{
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:8px;
+}
+
+/* ================= FAVORITES ================= */
+.favorites-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:10px;
+}
+
+.favorite-item{
+    background:linear-gradient(135deg,var(--pink),var(--hotpink));
+    padding:8px 12px;
+    border-radius:10px;
+    font-size:14px;
+    color:white;
+    box-shadow:0 0 10px var(--lightpink);
+    transition:.3s;
+}
+
+.favorite-item:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px var(--lightpink);
+}
+
+/* ================= STAR EFFECT ================= */
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:var(--lightpink);
+    border-radius:50%;
+    opacity:0.7;
+    animation:twinkle 2s infinite alternate;
+    z-index:1;
+}
+
+@keyframes twinkle{
+    0%{transform:scale(1);opacity:0.3;}
+    50%{transform:scale(1.5);opacity:1;}
+    100%{transform:scale(1);opacity:0.3;}
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:800px){
+    .columns-container{
+        flex-direction:column;
+        align-items:center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- STAR SCRIPT -->
+<script>
+for(let i=0;i<60;i++){
+    let star=document.createElement('div');
+    star.className='star';
+    star.style.top=Math.random()*100+'%';
+    star.style.left=Math.random()*100+'%';
+    star.style.width=star.style.height=(Math.random()*3+1)+'px';
+    star.style.animationDuration=(Math.random()*2+1)+'s';
+    document.body.appendChild(star);
+}
+</script>
+
+<header>
+    <h1>About Me 💗</h1>
+
+    <nav>
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="about.html" class="nav-btn">About Me</a>
+        <a href="contacts.html" class="nav-btn">Contacts</a>
+        <a href="goals.html" class="nav-btn">My Goals</a>
+        <a href="envi.html" class="nav-btn">My Environment</a>
+        <a href="future.html" class="nav-btn">My Future Me</a>
+        <a href="street.html" class="nav-btn">Street Photography</a>
+        <a href="brand.html" class="nav-btn">My Brand, My Logo</a>
+        <a href="thankyou.html" class="nav-btn">Thank You</a>
+    </nav>
+</header>
+
+<div class="columns-container">
+
+  <div class="column">
+    <h2>Personal Info</h2>
+    <p>Hi! My name is <strong>Bhea Helera</strong>, a 19-year-old girl from Guitnang Bayan 1, San Mateo, Rizal.</p>
+    <p>I’m currently in my first year of college at <strong>San Mateo Municipal College</strong>, taking up the <strong>Bachelor of Elementary Education (BEED)</strong> course.</p>
+    <p>Height: 5’2 | Weight: 40 kg</p>
+    <p>Religion: Roman Catholic | Relationship Status: Single</p>
+  </div>
+
+  <div class="column">
+    <h2>Hobbies & Interests</h2>
+    <p>Enjoys simple things like K-Dramas, music, and favorite artists:</p>
+    <p>BTS, Bruno Mars, Taylor Swift, Ruth B, Olivia Rodrigo, Silent Sanctuary, Rivermaya, Arthur Nery</p>
+  </div>
+
+  <div class="column">
+    <h2>Favorite Colors</h2>
+    <div class="favorites-grid">
+      <div class="favorite-item">Pink</div>
+      <div class="favorite-item">Black</div>
+      <div class="favorite-item">White</div>
+    </div>
+
+    <h2 style="margin-top:15px;">Favorite Flowers</h2>
+    <div class="favorites-grid">
+      <div class="favorite-item">Tulips</div>
+      <div class="favorite-item">Lily of the Valley</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
