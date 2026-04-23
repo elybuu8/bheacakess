@@ -8,8 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* ================= ROOT THEME ================= */
 :root{
     --dark:#2a001f;
     --pink:#ff4fa3;
@@ -18,7 +16,6 @@
     --soft:#ffe6f2;
 }
 
-/* ================= RESET ================= */
 *{
     margin:0;
     padding:0;
@@ -50,9 +47,7 @@ header h1{
 }
 
 /* ================= NAV ================= */
-nav{
-    margin-top:15px;
-}
+nav{ margin-top:15px; }
 
 .nav-btn{
     position: relative;
@@ -93,6 +88,54 @@ nav{
     box-shadow:0 0 20px var(--hotpink);
     background:#1a0014;
     color:var(--lightpink);
+}
+
+/* ================= LANDSCAPE BANNER (FIXED PROPERLY) ================= */
+.landscape-banner{
+    width:95%;
+    max-width:1000px;
+    height:160px;
+    margin:25px auto 0;
+    border-radius:16px;
+    overflow:hidden;
+    border:2px solid var(--lightpink);
+    box-shadow:0 0 20px var(--pink);
+    position:relative;
+}
+
+/* blurred background fill (fixes empty widescreen look) */
+.landscape-banner::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:url('about.jpeg') center/cover no-repeat;
+    filter:blur(14px);
+    transform:scale(1.2);
+    opacity:0.4;
+    z-index:0;
+}
+
+/* dark overlay for readability */
+.landscape-banner::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.25);
+    z-index:1;
+}
+
+/* actual image */
+.landscape-banner img{
+    position:relative;
+    z-index:2;
+    width:100%;
+    height:100%;
+    object-fit:contain; /* FULL IMAGE SHOW (no cropping) */
+    transition:.4s;
+}
+
+.landscape-banner:hover img{
+    transform:scale(1.05);
 }
 
 /* ================= CONTAINER ================= */
@@ -186,13 +229,11 @@ nav{
         align-items:center;
     }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- STAR SCRIPT -->
 <script>
 for(let i=0;i<60;i++){
     let star=document.createElement('div');
@@ -207,7 +248,6 @@ for(let i=0;i<60;i++){
 
 <header>
     <h1>About Me 💗</h1>
-
     <nav>
         <a href="index.html" class="nav-btn">Home</a>
         <a href="about.html" class="nav-btn">About Me</a>
@@ -221,36 +261,40 @@ for(let i=0;i<60;i++){
     </nav>
 </header>
 
+<!-- FIXED BANNER -->
+<div class="landscape-banner">
+    <img src="about.jpeg" alt="Main Banner">
+</div>
+
 <div class="columns-container">
 
-  <div class="column">
-    <h2>Personal Info</h2>
-    <p>Hi! My name is <strong>Bhea Helera</strong>, a 19-year-old girl from Guitnang Bayan 1, San Mateo, Rizal.</p>
-    <p>I’m currently in my first year of college at <strong>San Mateo Municipal College</strong>, taking up the <strong>Bachelor of Elementary Education (BEED)</strong> course.</p>
-    <p>Height: 5’2 | Weight: 40 kg</p>
-    <p>Religion: Roman Catholic | Relationship Status: Single</p>
-  </div>
-
-  <div class="column">
-    <h2>Hobbies & Interests</h2>
-    <p>Enjoys simple things like K-Dramas, music, and favorite artists:</p>
-    <p>BTS, Bruno Mars, Taylor Swift, Ruth B, Olivia Rodrigo, Silent Sanctuary, Rivermaya, Arthur Nery</p>
-  </div>
-
-  <div class="column">
-    <h2>Favorite Colors</h2>
-    <div class="favorites-grid">
-      <div class="favorite-item">Pink</div>
-      <div class="favorite-item">Black</div>
-      <div class="favorite-item">White</div>
+    <div class="column">
+        <h2>Personal Info</h2>
+        <p>Hi! My name is <strong>Bhea Helera</strong>, a 19-year-old girl from Guitnang Bayan 1, San Mateo, Rizal.</p>
+        <p>I’m currently in first year college at <strong>San Mateo Municipal College</strong>.</p>
+        <p>Height: 5’2 | Weight: 40 kg</p>
+        <p>Religion: Roman Catholic | Single</p>
     </div>
 
-    <h2 style="margin-top:15px;">Favorite Flowers</h2>
-    <div class="favorites-grid">
-      <div class="favorite-item">Tulips</div>
-      <div class="favorite-item">Lily of the Valley</div>
+    <div class="column">
+        <h2>Hobbies & Interests</h2>
+        <p>K-Dramas, music, BTS, Taylor Swift, Olivia Rodrigo, Arthur Nery, Rivermaya</p>
     </div>
-  </div>
+
+    <div class="column">
+        <h2>Favorite Colors</h2>
+        <div class="favorites-grid">
+            <div class="favorite-item">Pink</div>
+            <div class="favorite-item">Black</div>
+            <div class="favorite-item">White</div>
+        </div>
+
+        <h2 style="margin-top:15px;">Flowers</h2>
+        <div class="favorites-grid">
+            <div class="favorite-item">Tulips</div>
+            <div class="favorite-item">Lily of the Valley</div>
+        </div>
+    </div>
 
 </div>
 
